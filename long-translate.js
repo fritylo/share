@@ -109,12 +109,13 @@ mk-ru`;
 
     function cutText(text) {
         let part;
+        const sentenceEnd = /[!?.\n]/;
 
         if (text.length >= MAX_SYMBOLS) {
-            if (text[MAX_SYMBOLS-1].match(/\s/)) return { part: text.slice(0, MAX_SYMBOLS), left: text.slice(MAX_SYMBOLS) };
+            if (text[MAX_SYMBOLS-1].match(sentenceEnd)) return { part: text.slice(0, MAX_SYMBOLS), left: text.slice(MAX_SYMBOLS) };
             else {
                 let i = MAX_SYMBOLS-2;
-                while(!text[i].match(/\s/)) i--;
+                while(!text[i].match(sentenceEnd)) i--;
                 return { part: text.slice(0, i+1), left: text.slice(i+1) };
             }
         } else
