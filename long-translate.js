@@ -37,7 +37,14 @@
 
     input.setAttribute('placeholder', 'text');
     sequence.setAttribute('placeholder', 'languages');
-    sequence.value = 'ru-th\nth-si\nsi-ko\nko-hy\nhy-ru';
+    sequence.value =
+`ru-th
+th-si
+si-uk
+uk-ko
+ko-hy
+hy-mk
+mk-ru`;
 
     button.textContent = 'translate';
     clearLocalStorage.textContent = 'restart';
@@ -77,7 +84,7 @@
         window.location = `https://translate.google.com/?sl=${comingLangs.from}&tl=${comingLangs.to}&op=translate`;
     });
 
-    clearLocalStorage.on('click', e => localStorage.removeItem('long-trs') || location.reload());
+    clearLocalStorage.on('click', e => localStorage.removeItem('long-trs') || (window.location = 'https://translate.google.com/'));
 
     googleInput.on('keyup', async e => {
         await saveResult(storage);
