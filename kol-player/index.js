@@ -90,6 +90,8 @@ function renderStations(city) {
    player.src = STATE.stream;
    if (STATE.isPlaying)
       player.play();
+
+   $('.radio-station').click(handleClickStation);
 }
 renderStations(STATE.city);
 
@@ -100,7 +102,7 @@ $(radioCity).on('change input', e => {
    renderStations(city);
 });
 
-$('.radio-station').click(e => {
+function handleClickStation (e) {
    const station = e.currentTarget;
    
    STATE.station.classList.remove('radio-station_selected');
@@ -112,7 +114,7 @@ $('.radio-station').click(e => {
    player.src = STATE.stream;
    if (STATE.isPlaying)
       player.play();
-});
+}
 
 $('.button-play').click(function () {
    icon = $(this).find('i');
