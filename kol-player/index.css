@@ -72,6 +72,9 @@
   padding: 0.5em 3.68em;
   height: 4.625em;
 }
+.radio-container .radio-body::after {
+  display: none !important;
+}
 .radio-container .radio-body .radio-buttons .button {
   color: var(--radio-controls-color);
 }
@@ -152,6 +155,7 @@
   margin-right: 0.5em;
   border-radius: 8px;
   transition: width 0.5s, height 0.5s;
+  cursor: pointer;
 }
 .radio-container .radio-station:last-child {
   margin-right: 0;
